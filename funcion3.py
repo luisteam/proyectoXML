@@ -21,9 +21,8 @@ for i in range(1,(len(raiz))):
 		atributos1=atributos[i]
 
 		for attr,value in atributos1.items():
-			locate=(attr,value)
 
-			if locate[1] == 'LOCALIZACION':
+			if value == 'LOCALIZACION':
 				localizacion = atributos1[7]
 				texto1 = localizacion.text
 
@@ -33,4 +32,7 @@ for i in range(1,(len(raiz))):
 
 					listado.append(texto1)
 
-print(listado)
+if len(listado) >= 1:
+	print(listado)
+else:
+	print('Error no se ha encontrado ninguna actividad en la localidad deseada.')
