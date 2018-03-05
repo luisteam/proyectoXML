@@ -21,9 +21,8 @@ for i in range(1,(len(raiz))):
 		atributos1=atributos[i]
 
 		for attr,value in atributos1.items():
-			locate=(attr,value)
-
-			if locate[1] == 'LOCALIZACION':
+			
+			if value == 'LOCALIZACION':
 				localizacion = atributos1[7]
 				texto1 = localizacion.text
 
