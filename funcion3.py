@@ -6,33 +6,27 @@ xml = etree.tostring(doc,pretty_print=True ,xml_declaration=True, encoding="utf-
 raiz = doc.getroot()
 
 
-busqueda=input("Dime la localidad que desee ver sus activades: ")
+busqueda=input("Dime el distrito que desee ver sus activades: ")
 busqueda1=busqueda.upper()
 
 listado=[]
 
-for i in range(1,(len(raiz))):
+bloque=raiz.findall('contenido')
+for contenido in bloque:
+	for contenidos in contenido[1]:
+		if contenidos.attrib["nombre"]=="TITULO":
+			listadotemp=contenidos.text
+		for contenidos1 in contenidos:
+			if contenidos1.attrib["nombre"]=="DISTRITO":
+				if busqueda1 == contenidos1.text:
+					listado.append(listadotemp)
+					listadotemp=()
+				else:
+					listadotemp=()
 
-	contenido=raiz[i]
-
-	atributos = contenido[1]
-
-	for i in range(len(atributos)):
-		atributos1=atributos[i]
-
-		for attr,value in atributos1.items():
-
-			if value == 'LOCALIZACION':
-				localizacion = atributos1[7]
-				texto1 = localizacion.text
-
-				if busqueda1 == texto1:
-					atributos1 = atributos[1]
-					texto1 = atributos1.text
-
-					listado.append(texto1)
 
 if len(listado) >= 1:
 	print(listado)
+	print('El numero total de actividades para la busqueda es: %i' % (len(listado)))
 else:
 	print('Error no se ha encontrado ninguna actividad en la localidad deseada.')
