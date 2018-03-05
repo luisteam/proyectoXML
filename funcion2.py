@@ -7,26 +7,16 @@ raiz = doc.getroot()
 
 contador = 0
 
-busqueda=input("Dime la localidad que desee contabilizar: ")
+busqueda=input("Dime el distrito que desee contabilizar: ")
 busqueda1=busqueda.upper()
 
 
-for i in range(1,(len(raiz))):
-
-	contenido=raiz[i]
-
-	atributos = contenido[1]
-
-	for i in range(len(atributos)):
-		atributos1=atributos[i]
-
-		for attr,value in atributos1.items():
-			
-			if value == 'LOCALIZACION':
-				localizacion = atributos1[7]
-				texto1 = localizacion.text
-
-				if busqueda1 == texto1:
+bloque=raiz.findall('contenido')
+for contenido in bloque:
+	for contenidos in contenido[1]:
+		for contenidos1 in contenidos:
+			if contenidos1.attrib["nombre"]=="DISTRITO":
+				if busqueda1 == contenidos1.text:
 					contador=contador+1
 
 if contador >= 1:
