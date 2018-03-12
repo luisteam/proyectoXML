@@ -4,9 +4,9 @@ Carpeta del repositorio donde vamos a exponer 5 enunciados para **XML**
 
 1. **lista de actividades**, listas de las actividades y duracion.
 
-2. **listar** el numero de veces que se sale fuera de madrid(o otro lugar), cuantas actividades distintas se realizan en 100 dias, cuantas actividades de larga duracion se realizan. (elegir una)
+2. **listar** el numero de actividades que ocurren en un distrito.
 
-3. **buscar por teclado**, ejemplo: buscar las actividades que se hacen en madrid
+3. **buscar por teclado**, un distrito y mostrar en una lista las actividades que se realizaran.
 
 4. **buscar** una actividad enconcreto y mostrar actividades del mismo tipo, ejemplo: buscar y mostrar actividades de larga duracion, si la que buscabas era de ese tipo.
 
